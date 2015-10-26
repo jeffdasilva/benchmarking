@@ -15,3 +15,9 @@ run: lmbench.tar.gz
 lmbench.tar.gz:
 	rm -rf $@
 	wget http://sourceforge.net/projects/lmbench/files/latest/download -O $@
+
+.PHONY: clean
+clean:
+ifneq ($(wildcard lmbench-*),)
+	$(MAKE) -C lmbench-* clean
+endif

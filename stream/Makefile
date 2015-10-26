@@ -20,7 +20,6 @@ BENCHMARK_SRC := $(patsubst %,$(BENCHMARK_SRC_DIR)/%,\
 	Versions/stream_tuned.f \
 )
 
-
 .PHONY: all
 all: src
 	$(MAKE) -C $(BENCHMARK_SRC_DIR) FF=fort77
