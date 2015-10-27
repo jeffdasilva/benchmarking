@@ -15,7 +15,7 @@ sync: sync-opencv sync-opencv_contrib sync-opencv_extra
 
 
 sync-opencv sync-opencv_contrib sync-opencv_extra: sync-%:
-	if [ -d "$*" ]; then \ 
+	if [ -d "$*" ]; then \
 		git clone https://github.com/Itseez/$*.git; \
 	else \
 		cd $* && git pull; \
@@ -49,14 +49,14 @@ test:
 
 .PHONY: clean
 clean:
-	rm -rf build install
+	rm -rf build install 
 
 
 ##################################
 .PHONY: apt-get-packages
 apt-get-packages:
-	apt-get install build-essential
-	apt-get install cmake git libgtk2.0-dev pkg-config libavcodec-dev libavformat-dev libswscale-dev
-	apt-get install python-dev python-numpy libtbb2 libtbb-dev libjpeg-dev libpng-dev libtiff-dev libjasper-dev libdc1394-22-dev
+	apt-get -y install build-essential
+	apt-get -y install cmake git libgtk2.0-dev pkg-config libavcodec-dev libavformat-dev libswscale-dev
+	apt-get -y install python-dev python-numpy libtbb2 libtbb-dev libjpeg-dev libpng-dev libtiff-dev libjasper-dev libdc1394-22-dev
 ##################################
 
