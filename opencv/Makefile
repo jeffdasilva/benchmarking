@@ -15,7 +15,7 @@ sync: sync-opencv sync-opencv_contrib sync-opencv_extra
 
 
 sync-opencv sync-opencv_contrib sync-opencv_extra: sync-%:
-	if [ -d "$*" ]; then \
+	if [ ! -d "$*" ]; then \
 		git clone https://github.com/Itseez/$*.git; \
 	else \
 		cd $* && git pull; \
