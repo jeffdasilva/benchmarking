@@ -47,6 +47,10 @@ install: build
 test:
 	 OPENCV_TEST_DATA_PATH=opencv_extra/testdata ./build/bin/opencv_test_core
 
+.PHONY: clean
+clean:
+	rm -rf build install
+
 
 ##################################
 .PHONY: apt-get-packages
