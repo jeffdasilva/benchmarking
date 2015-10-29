@@ -36,7 +36,7 @@ configure:
 	cd build && cmake $(CMAKE_ARGS) ../opencv
 
 .PHONY: build
-build:
+build: configure
 	$(MAKE) -C build -j7
 
 .PHONY: install
