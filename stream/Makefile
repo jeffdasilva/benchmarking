@@ -20,9 +20,17 @@ BENCHMARK_SRC := $(patsubst %,$(BENCHMARK_SRC_DIR)/%,\
 	Versions/stream_tuned.f \
 )
 
+
+ifneq ($(shell which gfortran 2>/dev/null),)
+FF ?= gfortran
+endif
+ifneq ($(shell which fort77 2>/dev/null),)
+FF ?= fort77
+endif
+
 .PHONY: all
 all: src
-	$(MAKE) -C $(BENCHMARK_SRC_DIR) FF=fort77
+	$(MAKE) -C $(BENCHMARK_SRC_DIR) $(if $(FF),FF=$(FF))
 	$(BENCHMARK_SRC_DIR)/stream_c.exe
 
 .PHONY: src
