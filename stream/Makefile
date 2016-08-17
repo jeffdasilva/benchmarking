@@ -34,6 +34,8 @@ endif
 .PHONY: all
 all: src
 	$(MAKE) -C $(BENCHMARK_SRC_DIR) $(if $(FF),FF=$(FF),stream_c.exe)
+	file $(BENCHMARK_SRC_DIR)/stream_c.exe
+	size $(BENCHMARK_SRC_DIR)/stream_c.exe
 	$(BENCHMARK_SRC_DIR)/stream_c.exe
 
 .PHONY: src
