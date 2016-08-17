@@ -27,10 +27,13 @@ endif
 ifneq ($(shell which fort77 2>/dev/null),)
 FF ?= fort77
 endif
+ifneq ($(shell which g77 2>/dev/null),)
+FF ?= g77
+endif
 
 .PHONY: all
 all: src
-	$(MAKE) -C $(BENCHMARK_SRC_DIR) $(if $(FF),FF=$(FF))
+	$(MAKE) -C $(BENCHMARK_SRC_DIR) $(if $(FF),FF=$(FF),stream_c.exe)
 	$(BENCHMARK_SRC_DIR)/stream_c.exe
 
 .PHONY: src
